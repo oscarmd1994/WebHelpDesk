@@ -1,0 +1,25 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Baloo Thambi 2', cursive;
+}
+
+.bg-nav {
+    background-color: #164580 !important;
+}
+
+.col-title {
+    color: #78B5FF !important;
+}
+
+.col-ico {
+    color: #3C5A80 !important;
+}
+
+.btn-sh {
+    transition: 1s !important;
+}
+
+.test-col {
+    color: #0b295f !important;
+}

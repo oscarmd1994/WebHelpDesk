@@ -1,0 +1,47 @@
+﻿.cardAnimation {
+    animation: pulse 4s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: #97ACED;
+        transition: 0.1s;
+    }
+
+    100% {
+        background-color: #224ABE;
+        color: white;
+        transition: 0.1s;
+    }
+}
+
+.bdAnimation {
+    animation: pulseD 4s infinite;
+}
+
+@keyframes pulseD {
+    0% {
+        background-color: #EF8980;
+        transition: 0.1s;
+        box-shadow: 8px 8px 8px #C82719;
+    }
+
+    100% {
+        background-color: #C82719;
+        color: white;
+        transition: 0.1s;
+    }
+}
+
+.btnDownloadFloat {
+    animation: float 3s ease-out infinite;
+}
+
+@keyframes float {
+    50% {
+        transform: translate(0, 15px);
+    }
+}
+
+
+
