@@ -13,5 +13,25 @@ namespace WebHelpDesk.Controllers
         {
             return View();
         }
+        public ActionResult EnEspera()
+        {
+            return View();
+        }
+        public ActionResult Asignados()
+        {
+            return View();
+        }
+        public ActionResult Aplazados()
+        {
+            return View();
+        }
+        public ActionResult MisTickets()
+        {
+            return View();
+        }
+        public ActionResult Nuevo()
+        {
+            return View();
+        }
     }
 }

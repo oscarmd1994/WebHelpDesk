@@ -8,23 +8,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+
+    <link href="~/Content/bootstrap.min.css" />
+
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="~/Content/vendor/fontawesome-free/all.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="~/Content/main/sb-admin-2.css" />
     <link rel="stylesheet" href="~/Content/main/Colores.css" />
     <link rel="stylesheet" href="~/Content/animate.css" />
     <link rel="stylesheet" href="~/Content/main/animation.css?v=0.4" />
+    <link rel="stylesheet" href="~/Content/Site.css" />
     <script src="https://kit.fontawesome.com/3ad4466773.js" crossorigin="anonymous"></script>
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
     <script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    @*<script type="text/javascript" src="~/Scripts/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>*@
+
+
     <script type="text/javascript" src="~/Scripts/vendor/jquery-easing/jquery.easing.min.js"></script>
     <script type="text/javascript" src="~/Scripts/js/sb-admin-2.min.js"></script>
     <script type="text/javascript" src="~/Scripts/vendor/datatables/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="~/Scripts/vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" src="~/Scripts/sweetalert.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     @*<script type="text/javascript" src="~/Scripts/main.js?v=1.2"></script>*@
     @RenderSection("scripts", required: false)
@@ -49,7 +59,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link text-center" href="../DashBoar/Index">
+                <a class="nav-link text-center" href="../DashBoard/Index">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Tablero</span>
                 </a>
@@ -65,43 +75,44 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
+                <a class="nav-link">
+                    <i class="fas fa-fw fa-plus-circle"></i>
+                    <span>Nuevo Ticket</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>Empleados</span>
+                    <i class="fas fa-fw fa-file-alt"></i>
+                    <span>Tickets</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Selecciona una opción</h6>
-                        <a class="collapse-item" href="../Process/LoadsMassive">Cargas masivas</a>
-                        <a class="collapse-item" href="../Process/LowsMassive">Bajas masivas</a>
-                        <a class="collapse-item" href="../Process/SizesMasssive">Tallas masivas</a>
+                        <div class="collapse-item">Mis Tickets</div>
+                        <div class="collapse-item">En espera</div>
+                        <div class="collapse-item">Asignados</div>
+                        <div class="collapse-item">Aplazados</div>
                     </div>
                 </div>
             </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
+            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-piggy-bank"></i>
-                    <span>Nomina</span>
+                <a class="nav-link">
+                    <i class="fas fa-fw fa-history"></i>
+                    <span>Tickets Concluidos</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Selecciona una opción</h6>
-                        <a class="collapse-item" href="../Process/FirmOpening">Apertura en firme</a>
-                        @*<a class="collapse-item" href="utilities-border.html">Borders</a>
-                            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                            <a class="collapse-item" href="utilities-other.html">Other</a>*@
-                    </div>
-                </div>
             </li>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                WSTalentia
+                Reportes
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
