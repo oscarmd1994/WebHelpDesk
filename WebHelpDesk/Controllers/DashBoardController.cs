@@ -3,35 +3,50 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebHelpDesk.Models.Beans;
+using WebHelpDesk.Models.Daos;
 
 namespace WebHelpDesk.Controllers
 {
     public class DashBoardController : Controller
     {
-        // GET: DashBoard
+        // GET: Vistas
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult EnEspera()
+        public PartialViewResult EnEspera()
         {
-            return View();
+            return PartialView();
         }
-        public ActionResult Asignados()
+        public PartialViewResult Asignados()
         {
-            return View();
+            return PartialView();
         }
-        public ActionResult Aplazados()
+        public PartialViewResult Aplazados()
         {
-            return View();
+            return PartialView();
         }
-        public ActionResult MisTickets()
+        public PartialViewResult MisTickets()
         {
-            return View();
+            return PartialView();
         }
-        public ActionResult Nuevo()
+        public PartialViewResult Nuevo()
         {
-            return View();
+            return PartialView();
+        }
+        // Retorno de Datos
+        public JsonResult getTipoServicios()
+        {
+            CatalogosDao dao = new CatalogosDao();
+            List<TipoServicio> servicios = dao.sp_CTipoServicio_getTipoServicios();
+            return Json(servicios);
+        }
+        public JsonResult getModalidades(string servicio_id)
+        {
+            CatalogosDao dao = new CatalogosDao();
+            List<Modalidad> servicios = dao.sp_CModalidades_getModalidades(servicio_id);
+            return Json(servicios);
         }
     }
 }

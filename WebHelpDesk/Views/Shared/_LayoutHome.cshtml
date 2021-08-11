@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
+    <link rel="icon" href="~/Content/img/technics.png" />
     <link href="~/Content/bootstrap.min.css" />
-
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="~/Content/vendor/fontawesome-free/all.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="~/Content/main/sb-admin-2.css" />
@@ -23,35 +19,27 @@
     @Scripts.Render("~/bundles/jquery")
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
     <script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
-
     <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
-    @*<script type="text/javascript" src="~/Scripts/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>*@
-
-
     <script type="text/javascript" src="~/Scripts/vendor/jquery-easing/jquery.easing.min.js"></script>
     <script type="text/javascript" src="~/Scripts/js/sb-admin-2.min.js"></script>
     <script type="text/javascript" src="~/Scripts/vendor/datatables/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="~/Scripts/vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" src="~/Scripts/sweetalert.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    @*<script type="text/javascript" src="~/Scripts/main.js?v=1.2"></script>*@
+    <script type="text/javascript" src="~/Scripts/DashBoard/DashBoard.js"></script>
     @RenderSection("scripts", required: false)
 </head>
 <body id="page-top">
-
     <div id="wrapper">
-
         <!-- Sidebar -->
         <ul class="navbar-nav bg_fondo_dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../DashBoar/Index">
-                <div class="sidebar-brand-icon">
+                <span class="sidebar-brand-icon">
                     <img class="col-md-12" src="~/Content/img/logo_app.png" alt="Alternate Text" />
-                </div>
-                @*<div class="sidebar-brand-text mx-3">SysProc <sup>2.1</sup></div>*@
+                </span>
             </a>
 
             <!-- Divider -->
@@ -75,7 +63,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link">
+                <a class="nav-link" id="newTicket">
                     <i class="fas fa-fw fa-plus-circle"></i>
                     <span>Nuevo Ticket</span>
                 </a>
@@ -131,10 +119,6 @@
                     </div>
                 </div>
             </li>
-
-
-
-
         </ul>
 
         <div id="content-wrapper" class="d-flex flex-column">
@@ -150,7 +134,7 @@
                         <li class="nav-item dropdown no-arrow ml-1">
                             <div class="nav-link">
                                 <div class="btn btn-sm btn-danger btn-icon-split">
-                                    <span class="icon text-white-50">
+                                    <span class="icon text-white-50 ">
                                         <i class="fas fa-plus-circle fa-fw"></i>
                                     </span>
                                     <span class="text">Nuevo Ticket</span>
@@ -183,8 +167,6 @@
                                         <span class="font-weight-bold">A new monthly report is ready to download!</span>
                                     </div>
                                 </a>
-                                
-                                
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
                             </div>
                         </li>
@@ -205,8 +187,8 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
-                                             alt="...">
+                                        @*<img class="rounded-circle" src="img/undraw_profile_1.svg"
+                                             alt="...">*@
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div class="font-weight-bold">
@@ -250,7 +232,7 @@
                         </li>
                     </ul>
                 </nav>
-                <div class="container-fluid">
+                <div id="homeBody" class="container-fluid bg-light">
                     @RenderBody()
                 </div>
             </div>

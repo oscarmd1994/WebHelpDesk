@@ -6,32 +6,24 @@
     <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- Bootstrap CSS -->
-    <link rel="icon" type="image/png" href="~/Content/img/cogs_gear_setting_icon_127225.ico" />
+    <link rel="icon" href="~/Content/img/technics.png" />
     <link href="~/Content/vendor/fontawesome-free/all.min.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
     <link rel="stylesheet" href="~/Content/main/sb-admin-2.css" />
     <link rel="stylesheet" href="~/Content/main/Colores.css" />
     <link rel="stylesheet" href="~/Content/animate.css" />
     <script src="https://kit.fontawesome.com/3ad4466773.js" crossorigin="anonymous"></script>
-    @*@Styles.Render("~/Content/css")*@
-    @*@Scripts.Render("~/bundles/modernizr")*@
     <script type="text/javascript" src="~/Scripts/vendor/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="~/Scripts/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="~/Scripts/vendor/jquery-easing/jquery.easing.min.js"></script>
     <script type="text/javascript" src="~/Scripts/js/sb-admin-2.min.js"></script>
     <script type="text/javascript" src="~/Scripts/sweetalert.js"></script>
+    <script type="text/javascript" src="~/Scripts/login/main.js"></script>
     @RenderSection("scripts", required: false)
 </head>
-<body class="vh-100 bg_fondo_dark">
-
-    <div class="container-fluid bg_fondo_dark body-content">
+<body class=" bg_fondo_dark">
+    <div class="container bg_fondo_dark">
         @RenderBody()
-        <hr />
     </div>
-
-    @*@Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")*@
-
-    
 </body>
 </html>
