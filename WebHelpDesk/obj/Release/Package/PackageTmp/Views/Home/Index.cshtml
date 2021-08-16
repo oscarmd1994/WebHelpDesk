@@ -1,0 +1,87 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.title = "HelpDesk - Login";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-12 col-md-9 bg_fondo_dark">
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6 d-none d-lg-block bg-login-image animated  fadeIn ">
+                        </div>
+                        <div class="col-lg-6 animated fadeInLeft delay-1s">
+                            <div class="px-5 py-5">
+
+                                <div class="text-center">
+                                    <h1 class="h4 mb-2 text_dark font-weight-bold">! Bienvenido nuevamente !</h1>
+                                </div>
+                                <img src="~/Content/img/logo_app.png" class="col-md-12 p-0 m-0" />
+                                <form class="" id="form-login">
+                                    <div class="user" id="form-user">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user" required id="user-name" aria-describedby="emailHelp" placeholder="Usuario...">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user" required id="user-pass" placeholder="Contraseña...">
+                                        </div>
+
+                                        <small class="col-md-12 text-danger align-self-center font-weight-bold" id="txtvalidacion"></small>
+
+                                        <div id="btn-login" class="btn btn-danger btn-user mt-3 font-weight-bold btn-block">
+                                            INICIAR SESIÓN
+                                        </div>
+                                        <hr>
+                                        <div class="text-center mt-3">
+                                            <a class="text-green-dark" href="#" data-toggle="modal" data-target="#rememberPassword">¿ Olvidaste tu contraseña ?</a>
+                                        </div>
+                                    </div>
+                                </form>
+                                
+                                @*<hr>*@
+                                <div class="text-center">
+                                    <b class="small"> <i class="far fa-registered mr-2"></i>Racii.TI</b>
+                                </div>
+                                <div class="text-center">
+                                    <b class="small">
+                                        &copy; @DateTime.Now.Year Todos los derechos reservados.
+                                    </b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal remember password -->
+<div class="modal fade" id="rememberPassword" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Recordar contraseña</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<script type="text/javascript" src="~/Scripts/login/main.js?v=1.7"></script>*@
+<script>
+    $(function () {
+        
+    });
+</script>

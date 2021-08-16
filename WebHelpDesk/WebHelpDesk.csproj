@@ -26,7 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>4.2</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>4.3</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -181,23 +181,9 @@
     <Content Include="Content\vendor\datatables\dataTables.bootstrap4.css" />
     <Content Include="Content\vendor\datatables\datatables.css" />
     <Content Include="Content\vendor\datatables\datatables.min.css" />
-    <Content Include="Content\img\cogs_gear_setting_icon_127225.ico" />
-    <Content Include="Content\img\dev1.jpg" />
-    <Content Include="Content\img\login-white2.jpg" />
     <Content Include="Content\img\login_blue.jpg" />
-    <Content Include="Content\img\login_white1.jpg" />
-    <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\logo_app.png" />
-    <Content Include="Content\img\markus-spiske-4W5WWKaxsKs-unsplash.jpg" />
     <Content Include="Content\img\tools.png" />
-    <Content Include="Content\img\undraw_Browser_stats_re_j7wy.svg" />
-    <Content Include="Content\img\undraw_connected_world_wuay.svg" />
-    <Content Include="Content\img\undraw_Documents_re_isxv %281%29.svg" />
-    <Content Include="Content\img\undraw_Domain_names_re_0uun.svg" />
-    <Content Include="Content\img\undraw_export_files_re_99ar.svg" />
-    <Content Include="Content\img\undraw_my_password_d6kg.svg" />
-    <Content Include="Content\img\undraw_Online_information_re_erks.svg" />
-    <Content Include="Content\img\undraw_server_q2pb.svg" />
     <Content Include="Content\main.css" />
     <Content Include="Content\main\animation.css" />
     <Content Include="Content\main\Colores.css" />
@@ -267,7 +253,6 @@
     <Content Include="Scripts\js\demo\datatables-demo.js" />
     <Content Include="Scripts\js\sb-admin-2.min.js" />
     <Content Include="Scripts\login\main.js" />
-    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />

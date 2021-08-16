@@ -1,0 +1,20 @@
+﻿/* BACKGROUND */
+.bg_fondo_dark {
+    background-color: #263238;
+}
+.bg_title_tabla {
+    background-color: #607d8b;
+    color: rgba(255,255,255,0.8);
+    border-color: black;
+}
+.bg_fondo_tabla {
+    background-color: #cfd8dc;
+}
+/* TEXTO */
+.text_dark {
+    color: #263238;
+}
+.text-green-dark {
+    color: #00251a;
+}
+

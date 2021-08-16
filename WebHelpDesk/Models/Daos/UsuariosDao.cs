@@ -31,5 +31,32 @@ namespace WebHelpDesk.Models.Daos
             this.conexion.Close(); this.Conectar().Close();
             return respuesta;
         }
+        public UserData sp_TUsuarios_getUserData(string user, string pass)
+        {
+            UserData userData = new UserData();
+            this.Conectar();
+            SqlCommand cmd = new SqlCommand("sp_TUsuarios_getUserData", this.conexion)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.Add(new SqlParameter("@ctrlUsuario", user));
+            cmd.Parameters.Add(new SqlParameter("@ctrlPassword", pass));
+            SqlDataReader data = cmd.ExecuteReader();
+            cmd.Dispose();
+            if (data.HasRows)
+            {
+                while (data.Read())
+                {
+                    userData.IdTicket = data["IdUsuario"].ToString();
+                    userData.Nombre = data["Nombre"].ToString() +" " + data["Paterno"].ToString() +" "+ data["Materno"].ToString();
+                    userData.Email = data["Email"].ToString();
+                    userData.TipoUser_id = data["TipoUser_id"].ToString();
+                    userData.TipoUser = data["TipoUser"].ToString();
+                }
+            }
+            data.Close();
+            this.conexion.Close(); this.Conectar().Close();
+            return userData;
+        }
     }
 }

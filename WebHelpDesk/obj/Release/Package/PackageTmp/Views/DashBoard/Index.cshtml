@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    ViewBag.Title = "HelpDesk - Estadisticas";
+}
+<div class="h3 font-title">
+    Tickets Pendientes
+</div>
+<div class="col-md-12 p-3 bg_fondo_tabla rounded border">
+    
+    <table id="TicketsPendientesTab" class="font-table bg-white rounded table table-sm table-striped table-hover table-bordered">
+        <thead class="bg_title_tabla">
+            <tr>
+                <th scope="auto" class="text-center"><i class="fas fa-exclamation-circle"></i></th>
+                <th scope="auto">Modalidad</th>
+                <th scope="auto">Descripción</th>
+                <th scope="auto">Solicita</th>
+                <th scope="auto">Fecha</th>
+                <th scope="auto">Empresa</th>
+                <th scope="auto">Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="bodyTicketsPendientesTab" class="small">
+        </tbody>
+    </table>
+</div>
+
+
+
+<script defer type="text/javascript" src="~/Scripts/DashBoard/Index.js"></script>
