@@ -4,52 +4,51 @@
     <title>@ViewBag.Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" href="~/Content/img/technics.png" />
-    <link href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Ubuntu:wght@400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="~/Content/vendor/fontawesome-free/all.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="~/Content/main/sb-admin-2.css" />
+    <link rel="stylesheet" href="~/Content/vendor/datatables/datatables.min.css" />
     <link rel="stylesheet" href="~/Content/main/Colores.css" />
     <link rel="stylesheet" href="~/Content/animate.css" />
     <link rel="stylesheet" href="~/Content/main/animation.css?v=0.4" />
+    <link rel="stylesheet" href="~/Content/main.css" />
     <link rel="stylesheet" href="~/Content/Site.css" />
-    <script src="https://kit.fontawesome.com/3ad4466773.js" crossorigin="anonymous"></script>
-    @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/jquery")
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
-    <script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/sb-admin-2.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/sweetalert.js"></script>
+    <script defer type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script defer type="text/javascript" src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <script defer type="text/javascript" src="~/Scripts/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script defer type="text/javascript" src="~/Scripts/js/sb-admin-2.min.js"></script>
+    <script defer type="text/javascript" src="~/Scripts/vendor/datatables/datatables.min.js"></script>
+    <script defer type="text/javascript" src="~/Scripts/sweetalert.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/3ad4466773.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/DashBoard/DashBoard.js"></script>
-    @RenderSection("scripts", required: false)
 </head>
 <body id="page-top">
     <div id="wrapper">
         <!-- Sidebar -->
         <ul class="navbar-nav bg_fondo_dark sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../DashBoar/Index">
-                <span class="sidebar-brand-icon">
-                    <img class="col-md-12" src="~/Content/img/logo_app.png" alt="Alternate Text" />
-                </span>
-            </a>
-
+            <li>
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../DashBoar/Index">
+                    <span class="sidebar-brand-icon">
+                        <img class="col-md-12" src="~/Content/img/logo_app.png" alt="Alternate Text" />
+                    </span>
+                </a>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link text-center" href="../DashBoard/Index">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Tablero</span>
+                    <i class="fas fa-chart-line"></i>
+                    <span>Estadística</span>
                 </a>
             </li>
 
@@ -58,9 +57,15 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Inicio
+                Tickets
             </div>
-
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" id="newTicket">
+                    <i class="fas fa-fw fa-clock"></i>
+                    <span>Pendientes</span>
+                </a>
+            </li>
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" id="newTicket">
@@ -70,22 +75,21 @@
             </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-file-alt"></i>
-                    <span>Tickets</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Selecciona una opción</h6>
-                        <div class="collapse-item">Mis Tickets</div>
-                        <div class="collapse-item">En espera</div>
-                        <div class="collapse-item">Asignados</div>
-                        <div class="collapse-item">Aplazados</div>
-                    </div>
-                </div>
-            </li>
-
+            <!--<li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-file-alt"></i>
+            <span>Tickets</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Selecciona una opción</h6>
+                <div class="collapse-item">Mis Tickets</div>
+                <div class="collapse-item">En espera</div>
+                <div class="collapse-item">Asignados</div>
+                <div class="collapse-item">Aplazados</div>
+            </div>
+        </div>
+    </li>-->
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link">
@@ -199,11 +203,9 @@
                                         <div class="small text-gray-500">Emily Fowler · 58m</div>
                                     </div>
                                 </a>
-                                
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                             </div>
                         </li>
-
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->

@@ -1,13 +1,12 @@
 ﻿$(function () {
 
-    
+    var formLogin = document.getElementById('form-login');
 
     setTimeout(() => {
         document.getElementById('user-name').focus();
     }, 1000);
 
     $("#btn-login").on("click", function () {
-        var formLogin = document.getElementById('form-login');
         var userName = document.getElementById('user-name');
         var userPass = document.getElementById('user-pass');
 
@@ -49,11 +48,31 @@
             }, 5000);
 
         } else {
-            console.log("valido");
-            $("#txtvalidacion").html("no entro");
-            location.href = "../DashBoard/Index";
+            validationLogin(userName.value, userPass.value)
         }
         //location.href = "../DashBoard/Index";
     });
+
+    validationLogin = (user,pass) => {
+        $.ajax({
+            url: "../Home/ValudaUser",
+            type: "POST",
+            data: JSON.stringify({ "user": user, "pass": pass }),
+            contentType: "application/json; charset=utf-8",
+            success: (data) => {
+                console.log(data);
+                if (data["iFlag"] == "0") {
+                    formLogin.classList.toggle("was-validated", true);
+                    $("#txtvalidacion").removeClass("text-danger").addClass("text-info");
+                    $("#txtvalidacion").html("<div class='spinner-grow text-info' role='status'><span class='sr-only'> Loading...</span></div>" + data["sMessage"]);
+                    setTimeout(function () {
+                        location.href = "../DashBoard/Index";
+                    }, 2500);
+                } else {
+                    $("#txtvalidacion").html("Ocurrio un error al momento de validar, favor de reintentar!.");
+                }
+            }
+        });
+    }
 
 });

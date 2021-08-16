@@ -35,6 +35,10 @@ namespace WebHelpDesk.Controllers
         {
             return PartialView();
         }
+        public PartialViewResult Estadisticas()
+        {
+            return PartialView();
+        }
         // Retorno de Datos
         public JsonResult getTipoServicios()
         {
