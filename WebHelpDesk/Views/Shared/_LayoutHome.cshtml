@@ -24,14 +24,18 @@ else
         <link rel="stylesheet" href="~/Content/main/animation.css?v=0.4" />
         <link rel="stylesheet" href="~/Content/main.css" />
         <link rel="stylesheet" href="~/Content/Site.css" />
-        <script defer type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
-        <script defer type="text/javascript" src="~/Scripts/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
         <script defer type="text/javascript" src="~/Scripts/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script defer type="text/javascript" src="~/Scripts/jquery.signalR-2.4.2.min.js"></script>
+        <script defer type="text/javascript" src="~/Scripts/bootstrap.bundle.min.js"></script>
         <script defer type="text/javascript" src="~/Scripts/js/sb-admin-2.min.js"></script>
         <script defer type="text/javascript" src="~/Scripts/vendor/datatables/datatables.min.js"></script>
         <script defer type="text/javascript" src="~/Scripts/sweetalert.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script defer src="https://kit.fontawesome.com/3ad4466773.js" crossorigin="anonymous"></script>
+        <script defer type="text/javascript" src="~/Scripts/DashBoard/DashBoard.js"></script>
+        <script defer src="/signalr/hubs"></script>
+        
     </head>
     <body id="page-top">
         <div id="wrapper">
@@ -61,7 +65,7 @@ else
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" t>
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#newTicketModal">
                         <i class="fas fa-fw fa-plus-circle"></i>
                         <span>Nuevo Ticket</span>
                     </a>
@@ -91,23 +95,26 @@ else
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fas fa-bell fa-fw"></i>
                                     <span class="badge badge-danger badge-counter">3+</span>
-                                </a>
+                                </a>     
                                 <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                      aria-labelledby="alertsDropdown">
                                     <h6 class="dropdown-header">
-                                        Alerts Center
+                                        Notificaciones
                                     </h6>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="mr-3">
-                                            <div class="icon-circle bg_fondo_dark">
-                                                <i class="fas fa-file-alt text-white"></i>
+                                    <div>
+                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                            <div class="mr-3">
+                                                <div class="icon-circle bg_fondo_dark">
+                                                    <i class="fas fa-file-alt text-white"></i>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div>
-                                            <div class="small text-gray-500">December 12, 2019</div>
-                                            <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                                        </div>
-                                    </a>
+                                            <div>
+                                                <div class="small text-gray-500">December 12, 2019</div>
+                                                <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    
                                     <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
                                 </div>
                             </li>
@@ -120,7 +127,7 @@ else
                                 <div class="dropdown-list dropdown-menu  dropdown-menu-right shadow animated--grow-in"
                                      aria-labelledby="messagesDropdown">
                                     <h6 class="dropdown-header">
-                                        Message Center
+                                        Mensajes
                                     </h6>
                                     <a class="dropdown-item d-flex align-items-center" href="#">
                                         <div class="dropdown-list-image mr-3">
@@ -137,9 +144,9 @@ else
                                     <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                                 </div>
                             </li>
-                            @*<li>
-                                <div class="topbar-divider "></div>
-                            </li>*@
+                            <li>
+                                <div class="h-100 border ml-5 mr-3"></div>
+                            </li>
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle align-middle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="mr-2 text-gray-600 small text-uppercase font-weight-bold"> @Session["tipouser"].ToString() </span>
@@ -202,101 +209,50 @@ else
                 </div>
             </div>
         </div>
-        @*<div class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="newTicketModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+        
+        <div class="modal" tabindex="-1" id="newTicketModal">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header bg_fondo_dark">
-                        <h5 class="modal-title text-white" id="newTicketModalLabel">¿Listo para salir?</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container row text-dark bg-gray-300 p-5 mx-auto mt-5 rounded">
-                            <div class="my-3 h3 mx-auto"><b><i class="fas fa-file-alt text-danger"></i> Nuevo Ticket</b></div>
-                            <div class="h6 col-md-12">
-                                Seleccione el tipo de servicio.
-                            </div>
-                            <select class="custom-select custom-select-sm">
-                                <option value="value">Soporte Tecnico</option>
-                            </select>
-                            <div class="h6 col-md-12 mt-3">
-                                Seleccione la modalidad.
-                            </div>
-                            <select class="custom-select custom-select-sm">
-                                <option value="value">Soporte Tecnico</option>
-                            </select>
-                            <div class="h6 col-md-12 mt-3">
-                                Seleccione la empresa.
-                            </div>
-                            <select class="custom-select custom-select-sm">
-                                <option value="value">Soporte Tecnico</option>
-                            </select>
-                            <div class="h6 col-md-12 mt-3">
-                                Comentarios
-                            </div>
-                            <textarea cols="5" class="form-control form-control-sm" placeholder="Describa su problema"></textarea>
-                            <div class="btn btn-block btn-success py-2 mt-5">
-                                GUARDAR
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-sm btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                        <a class="btn btn-primary btn-sm" href="../Process/Logout">Cerrar sesión</a>
-                    </div>
-                </div>
-            </div>
-        </div>*@
-
-        <div class="modal" tabindex="-1" id="newTicketModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <h5 class="modal-title text-white"><b><i class="fas fa-file-alt text-danger"></i> Nuevo Ticket</b></h5>
+                        <button type="button" class="close text-white-50" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <div class="row text-dark bg-gray-300 p-5 mx-auto mt-5 rounded">
-                            <div class="my-3 h3 mx-auto"><b><i class="fas fa-file-alt text-danger"></i> Nuevo Ticket</b></div>
+                    <form id="frmNewTicket" class="" method="post">
+                        <div class="modal-body bg_fondo_tabla text_dark p-5">
+                            
                             <div class="h6 col-md-12">
-                                Seleccione el tipo de servicio.
+                                Seleccione el Tipo de Servicio.
                             </div>
-                            <select class="custom-select custom-select-sm">
-                                <option value="value">Soporte Tecnico</option>
+                            <select id="tipoServicioSelect" class="custom-select custom-select-sm" required>
                             </select>
                             <div class="h6 col-md-12 mt-3">
-                                Seleccione la modalidad.
+                                Seleccione la Modalidad.
                             </div>
-                            <select class="custom-select custom-select-sm">
-                                <option value="value">Soporte Tecnico</option>
+                            <select id="modalidadSelect" class="custom-select custom-select-sm" required>
                             </select>
+                            <div id="helper-modalidad" class="invalid-feedback">Primero seleccione un Tipo de Servicio!</div>
                             <div class="h6 col-md-12 mt-3">
-                                Seleccione la empresa.
+                                Seleccione la Empresa.
                             </div>
-                            <select class="custom-select custom-select-sm">
-                                <option value="value">Soporte Tecnico</option>
+                            <select id="empresaSelect" class="custom-select custom-select-sm" required>
                             </select>
                             <div class="h6 col-md-12 mt-3">
                                 Comentarios
                             </div>
                             <textarea cols="5" class="form-control form-control-sm" placeholder="Describa su problema"></textarea>
-                            <div class="btn btn-block btn-success py-2 mt-5">
-                                GUARDAR
-                            </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
+                        <div class="modal-footer bg_fondo_tabla">
+                            <button type="button" class="btn btn-danger col" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-success col">Guardar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-
-
+        
+        <script type="text/javascript" src="~/Scripts/SignalR/SignalR.js"></script>
     </body>
 </html>
 }

@@ -27,6 +27,7 @@ namespace WebHelpDesk.Controllers
                 Session["mail"] = userData.Email;
                 Session["tipouser"] = userData.TipoUser;
                 Session["nombre"] = userData.Nombre;
+                Session["iduser"] = userData.IdUser;
             }
             return Json(respuestas);
         }

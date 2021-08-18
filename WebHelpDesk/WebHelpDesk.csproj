@@ -162,11 +162,11 @@
     </Compile>
     <Compile Include="Models\Beans\Catalogos.cs" />
     <Compile Include="Models\Conexion\Conexion.cs" />
-    <Compile Include="Models\Conexion\ServerHub.cs" />
     <Compile Include="Models\Daos\CatalogosDao.cs" />
     <Compile Include="Models\Daos\TicketsDao.cs" />
     <Compile Include="Models\Daos\UsuariosDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerHub.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -195,7 +195,6 @@
     <Content Include="Content\vendor\webfonts\fa-brands-400.svg" />
     <Content Include="Content\vendor\webfonts\fa-regular-400.svg" />
     <Content Include="Content\vendor\webfonts\fa-solid-900.svg" />
-    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\vendor\webfonts\fa-brands-400.eot" />
     <Content Include="Content\vendor\webfonts\fa-brands-400.ttf" />

@@ -65,5 +65,29 @@ namespace WebHelpDesk.Models.Daos
             this.conexion.Close(); this.Conectar().Close();
             return list;
         }
+        public List<Empresas> sp_CEmpresas_getEmpresas()
+        {
+            List<Empresas> list = new List<Empresas>();
+            this.Conectar();
+            SqlCommand cmd = new SqlCommand("sp_CEmpresas_getEmpresas", this.conexion)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            SqlDataReader data = cmd.ExecuteReader();
+            cmd.Dispose();
+            if (data.HasRows)
+            {
+                while (data.Read())
+                {
+                    Empresas modalidad = new Empresas();
+                    modalidad.Id = data["Id"].ToString();
+                    modalidad.NombreEmpresa = data["NombreEmpresa"].ToString();
+                    list.Add(modalidad);
+                }
+            }
+            data.Close();
+            this.conexion.Close(); this.Conectar().Close();
+            return list;
+        }
     }
 }

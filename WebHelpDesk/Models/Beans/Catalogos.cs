@@ -62,10 +62,15 @@ namespace WebHelpDesk.Models.Beans
     }
     public class UserData
     {
-        public string IdTicket { get; set; }
+        public string IdUser { get; set; }
         public string Nombre { get; set; }
         public string Email { get; set; }
         public string TipoUser_id { get; set; }
         public string TipoUser { get; set; }
+    }
+    public class Empresas
+    {
+        public string Id { get; set; }
+        public string NombreEmpresa { get; set; }
     }
 }

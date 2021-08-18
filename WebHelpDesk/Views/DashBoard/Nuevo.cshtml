@@ -1,28 +1,63 @@
-﻿<div class="container row text-dark col-md-6 bg-gray-300 p-5 mx-auto mt-5 rounded">
-    <div class="my-3 h3 mx-auto"><b><i class="fas fa-file-alt text-danger"></i> Nuevo Ticket</b></div>
-    <div class="h6 col-md-12">
-        Seleccione el tipo de servicio.
-    </div>
-    <select class="custom-select custom-select-sm">
-        <option value="value">Soporte Tecnico</option>
-    </select>
-    <div class="h6 col-md-12 mt-3">
-        Seleccione la modalidad.
-    </div>
-    <select class="custom-select custom-select-sm">
-        <option value="value">Soporte Tecnico</option>
-    </select>
-    <div class="h6 col-md-12 mt-3">
-        Seleccione la empresa.
-    </div>
-    <select class="custom-select custom-select-sm">
-        <option value="value">Soporte Tecnico</option>
-    </select>
-    <div class="h6 col-md-12 mt-3">
-        Comentarios 
-    </div>
-    <textarea cols="5" class="form-control form-control-sm" placeholder="Describa su problema"></textarea>
-    <div class="btn btn-block btn-success py-2 mt-5">
-        GUARDAR
+﻿@*<div class="container row text-dark col-md-6 bg-gray-300 p-5 mx-auto mt-5 rounded">
+        <div class="my-3 h3 mx-auto"><b><i class="fas fa-file-alt text-danger"></i> Nuevo Ticket</b></div>
+        <div class="h6 col-md-12">
+            Seleccione el tipo de servicio.
+        </div>
+        <select class="custom-select custom-select-sm">
+            <option value="value">Soporte Tecnico</option>
+        </select>
+        <div class="h6 col-md-12 mt-3">
+            Seleccione la modalidad.
+        </div>
+        <select class="custom-select custom-select-sm">
+            <option value="value">Soporte Tecnico</option>
+        </select>
+        <div class="h6 col-md-12 mt-3">
+            Seleccione la empresa.
+        </div>
+        <select class="custom-select custom-select-sm">
+            <option value="value">Soporte Tecnico</option>
+        </select>
+        <div class="h6 col-md-12 mt-3">
+            Comentarios
+        </div>
+        <textarea cols="5" class="form-control form-control-sm" placeholder="Describa su problema"></textarea>
+        <div class="btn btn-block btn-success py-2 mt-5">
+            GUARDAR
+        </div>
+    </div>*@
+
+
+<!-- Button trigger modal -->
+<button type="button"
+        class="btn btn-primary"
+        data-mdb-toggle="modal"
+        data-mdb-target="#exampleModal">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade"
+     id="exampleModal"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button"
+                        class="btn-close"
+                        data-mdb-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <div class="modal-body">...</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
     </div>
 </div>

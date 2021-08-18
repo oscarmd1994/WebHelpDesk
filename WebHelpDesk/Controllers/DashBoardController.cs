@@ -52,5 +52,11 @@ namespace WebHelpDesk.Controllers
             List<Modalidad> servicios = dao.sp_CModalidades_getModalidades(servicio_id);
             return Json(servicios);
         }
+        public JsonResult getEmpresas()
+        {
+            CatalogosDao dao = new CatalogosDao();
+            List<Empresas> servicios = dao.sp_CEmpresas_getEmpresas();
+            return Json(servicios);
+        }
     }
 }

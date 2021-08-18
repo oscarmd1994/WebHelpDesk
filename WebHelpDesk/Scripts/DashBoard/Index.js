@@ -3,9 +3,9 @@
     var TicketsPendientesTab;
 
     $("#newTicket").click(function () {
-        //$("#homeBody").empty();
-        //$("#homeBody").load("../DashBoard/Nuevo");
-        $("#newTicketModal").modal("show");
+        $("#homeBody").empty();
+        $("#homeBody").load("../DashBoard/Nuevo");
+        /*$("#newTicketModal").modal("show");*/
 
     });
 

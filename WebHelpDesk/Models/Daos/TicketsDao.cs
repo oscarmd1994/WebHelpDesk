@@ -90,5 +90,30 @@ namespace WebHelpDesk.Models.Daos
 
             return tickets;
         }
+        public Respuestas sp_TTickets_insertTickets(string user_id, string modalidad_id,string empresa_id,string descripcion)
+        {
+            Respuestas respuestas = new Respuestas();
+            this.Conectar();
+            SqlCommand cmd = new SqlCommand("sp_TTickets_insertTickets", this.conexion)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.Add(new SqlParameter("@ctrlUser_id", user_id));
+            cmd.Parameters.Add(new SqlParameter("@ctrlEmpresa_id", empresa_id));
+            cmd.Parameters.Add(new SqlParameter("@ctrlModalidad_id", modalidad_id));
+            cmd.Parameters.Add(new SqlParameter("@ctrlDescripcion_problema", descripcion));
+            SqlDataReader data = cmd.ExecuteReader();
+            cmd.Dispose();
+            if (data.HasRows)
+            {
+                while (data.Read())
+                {
+                    respuestas.iFlag = data["iFlag"].ToString();
+                    respuestas.sMessage = data["sMessage"].ToString();
+                }
+            }
+            data.Close();this.conexion.Close(); this.Conectar().Close();
+            return respuestas;
+        }
     }
 }

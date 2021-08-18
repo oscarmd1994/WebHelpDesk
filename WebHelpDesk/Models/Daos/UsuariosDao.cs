@@ -47,7 +47,7 @@ namespace WebHelpDesk.Models.Daos
             {
                 while (data.Read())
                 {
-                    userData.IdTicket = data["IdUsuario"].ToString();
+                    userData.IdUser = data["IdUsuario"].ToString();
                     userData.Nombre = data["Nombre"].ToString() +" " + data["Paterno"].ToString() +" "+ data["Materno"].ToString();
                     userData.Email = data["Email"].ToString();
                     userData.TipoUser_id = data["TipoUser_id"].ToString();
